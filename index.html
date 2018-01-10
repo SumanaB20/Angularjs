@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+   
+
+<div ng-controller="shashiCtr">
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>id</th>
+                <th>photo</th>
+                <th>Runs</th>
+                <th>Close</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="player in players">
+                <td>{{player.name}}</td>
+                <td>{{player.id}}</td>
+                <td><img ng-src="{{player.photo}}" /></td>
+                <td>{{player.runs}}</td>
+                <td><a ng-click="removeplayer(player)">X</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <form ng-submit="addplayer()">
+    <input type="text" placeholder="name" ng-model="newName"/><br>
+    <input type="text" placeholder="id" ng-model="newId"/><br>
+    <input type="text" placeholder="run" ng-model="newRuns"/>
+    <input type="submit" value="submit"/>
+    </form>
+</div>
+</body>
+</html>
